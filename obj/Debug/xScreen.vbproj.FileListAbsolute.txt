@@ -1,0 +1,15 @@
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\bin\Debug\xScreen.exe.config
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\bin\Debug\xScreen.exe
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\bin\Debug\xScreen.pdb
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\bin\Debug\xScreen.xml
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.vbproj.ResolveComReference.cache
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.Gui.FormConfig.resources
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.Gui.FormMain.resources
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\Resources.resources
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.vbproj.GenerateResource.Cache
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.exe
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.xml
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.pdb
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.vbprojResolveAssemblyReference.cache
+C:\LIMS\dotnet\01_Entwicklung\01_Programme\LIMS\__ProgrammingEnvironment_\xScreen\obj\Debug\xScreen.Gui.FormInfo.resources

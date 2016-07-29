@@ -1,0 +1,207 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+xScreen
+</name>
+</assembly>
+<members>
+<member name="T:xScreen.Gui.FormConfig">
+ <summary>
+ Formular zum Verwalten der Konfigration.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:xScreen.Gui.FormMain">
+ <summary>
+ Hauptformular des Programms.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:xScreen.Model.Configuration">
+ <summary>
+ Konfiguration des Programms.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:xScreen.Model.Configuration._InternPassword">
+ <summary>
+ NIEMALS ÄNDERN, SONST GEHEN ALTE BILDER NICHT MEHR AUF!
+ </summary>
+</member>
+<member name="M:xScreen.Model.Configuration.GetConfigurationString">
+ <summary>
+ Gibt die Konfiguration als String zurück.
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:xScreen.Model.ScreenShot">
+ <summary>
+ Stellt einen Screenshot dar.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:xScreen.Model.ScreenShot.CaptureNew">
+ <summary>
+ Nimmt den Bildschirm auf und gibt einen Verweis auf den Screenshot zurück.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:xScreen.Model.ScreenShot.SaveAsNewFile">
+ <summary>
+ Speichert den Screenshot ins konfigurierte Verzeichnis.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:xScreen.Model.ScreenShot.SaveAsZip">
+ <summary>
+ Speichert den Screenshot in einer (passwortgeschützen) ZIP-Datei ins konfigurierte Verzeichnis.
+ </summary>
+</member>
+<member name="T:xScreen.Model.SessionInfo">
+ <summary>
+ Gibt Infos zur aktuellen Windows-Sitzung an.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:xScreen.Model.SessionInfo.#ctor">
+ <summary>
+ Initialisiert eine neue Instanz der Klasse
+ xScreen.Model.SessionInfo
+ </summary>
+</member>
+<member name="P:xScreen.Model.SessionInfo.SessionLocked">
+ <summary>
+ Gibt an, ob die aktuelle Windows-Sitzung gesperrt ist.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:xScreen.Model.Util.EncryptString(System.String,System.String)">
+ <summary>
+ Encrypts the string.
+ </summary>
+ <param name="clearText">The clear text.</param>
+ <param name="Password">The password.</param>
+ <returns></returns>
+</member>
+<member name="M:xScreen.Model.Util.DecryptString(System.String,System.String)">
+ <summary>
+ Decrypts the string.
+ </summary>
+ <param name="cipherText">The cipher text.</param>
+ <param name="Password">The password.</param>
+ <returns></returns>
+</member>
+<member name="M:xScreen.Model.Util.EncryptString(System.Byte[],System.Byte[],System.Byte[])">
+ <summary>
+ Encrypts the string.
+ </summary>
+ <param name="clearText">The clear text.</param>
+ <param name="Key">The key.</param>
+ <param name="IV">The IV.</param>
+ <returns></returns>
+</member>
+<member name="M:xScreen.Model.Util.DecryptString(System.Byte[],System.Byte[],System.Byte[])">
+ <summary>
+ Decrypts the string.
+ </summary>
+ <param name="cipherData">The cipher data.</param>
+ <param name="Key">The key.</param>
+ <param name="IV">The IV.</param>
+ <returns></returns>
+</member>
+<member name="T:My.Resources.Resources">
+<summary>
+  Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.ResourceManager">
+<summary>
+  Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.Culture">
+<summary>
+  Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+  Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.asterisk_orange">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.cross">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.folder2">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.gear">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.information">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.media_play_green">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.media_stop">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.media_stop_red">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.nav_plain_blue">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.page_white_text">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.videocamera">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+</summary>
+</member>
+<member name="P:My.Resources.Resources.videocamera_run">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+</summary>
+</member>
+<member name="P:My.Resources.Resources.videocamera_run1">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:My.Resources.Resources.videocamera_stop">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+</summary>
+</member>
+<member name="P:My.Resources.Resources.videocamera_stop1">
+<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>
