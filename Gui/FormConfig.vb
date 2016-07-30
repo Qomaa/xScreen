@@ -17,7 +17,7 @@ Namespace xScreen.Gui
 
 #Region " Implementation "
         Private Sub Initialize()
-            Me.PropertyGridConfig.SelectedObject = Model.Configuration.CurrentConfiguration
+            Me.PropertyGridConfig.SelectedObject = Model.Configuration.Current
             Me.PropertyGridConfig.ToolbarVisible = False
             Me.PropertyGridConfig.PropertySort = PropertySort.Categorized
         End Sub

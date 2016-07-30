@@ -110,7 +110,7 @@ Namespace xScreen.Model
 
             Util.WriteLogFileEntry(messageBuilder.ToString(), True)
 
-            If (Not Configuration.CurrentConfiguration.BackgroundErrorHandling) Then
+            If (Not Configuration.Current.BackgroundErrorHandling) Then
                 MessageBox.Show(
                     messageBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
             End If

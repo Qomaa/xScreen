@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("xScreen")> 
 <Assembly: AssemblyDescription("takes screenshots automatically")>
 <Assembly: AssemblyCompany("xScreen")>
-<Assembly: AssemblyProduct("xScreen")> 
-<Assembly: AssemblyCopyright("i don't care")> 
+<Assembly: AssemblyProduct("xScreen")>
+<Assembly: AssemblyCopyright("Andreas Hoffmann")>
 '<Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -29,7 +29,7 @@ Imports System.Runtime.InteropServices
 '
 ' Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 ' übernehmen, indem Sie "*" eingeben:
-<Assembly: AssemblyVersion("1.5.1")>
+<Assembly: AssemblyVersion("1.5.2")>
 
 '<Assembly: AssemblyVersion("0.0.0")> 
 '<Assembly: AssemblyFileVersion("0.0.0.0")> 

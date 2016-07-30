@@ -64,7 +64,7 @@ Namespace xScreen.Model
 
         Public Function IsSimilarImage(ScreenShotToCompare As ScreenShot) As Boolean
 
-            If (Not Configuration.CurrentConfiguration.SkipSimilarImages) Then Return False
+            If (Not Configuration.Current.SkipSimilarImages) Then Return False
             If (ScreenShotToCompare Is Nothing) Then Return False
             If (ScreenShotToCompare.Image Is Nothing) Then Return False
             If (Me.Image.Width <> ScreenShotToCompare.Image.Width) Then Return False
@@ -112,7 +112,7 @@ Namespace xScreen.Model
 
                 Dim similarity As Double = equalPixels / (currentImagePixels / 100)
 
-                Return (similarity >= Configuration.CurrentConfiguration.SkipImageSimilarity)
+                Return (similarity >= Configuration.Current.SkipImageSimilarity)
             Catch ex As Exception
                 Throw New Exception("Error while comparing images.", ex)
             Finally
@@ -133,16 +133,16 @@ Namespace xScreen.Model
             Dim encoderParams As EncoderParameters
 
             Try
-                format = Configuration.CurrentConfiguration.ImageFormat
+                format = Configuration.Current.ImageFormat
 
-                If (Configuration.CurrentConfiguration.WriteTimeStamp) Then
+                If (Configuration.Current.WriteTimeStamp) Then
                     Me.AddTimeStamp()
                 End If
 
                 codecInfo = Me.GetEncoderInfo(format)
                 encoder = Encoder.Quality
                 encoderParams = New EncoderParameters(1)
-                encoderParam = New EncoderParameter(encoder, Configuration.CurrentConfiguration.Quality)
+                encoderParam = New EncoderParameter(encoder, Configuration.Current.Quality)
                 encoderParams.Param(0) = encoderParam
 
                 If (codecInfo IsNot Nothing) Then
@@ -154,17 +154,17 @@ Namespace xScreen.Model
                     fileExtension = fileExtension.Replace("*", "")
                     fileExtension = fileExtension.Replace(".", "")
 
-                    Me.Filename = IO.Path.Combine(Configuration.CurrentConfiguration.DirectoryPath,
+                    Me.Filename = IO.Path.Combine(Configuration.Current.DirectoryPath,
                                                      String.Format("screen-{0}.{1}", Me.ImageDate.ToString("yyyyMMdd-HHmmss"), fileExtension))
 
                     Me.Image.Save(Me.Filename, codecInfo, encoderParams)
                 Else
-                    Me.Filename = IO.Path.Combine(Configuration.CurrentConfiguration.DirectoryPath,
+                    Me.Filename = IO.Path.Combine(Configuration.Current.DirectoryPath,
                                                      String.Format("screen-{0}.{1}", Me.ImageDate.ToString("yyyyMMdd-HHmmss"), format.ToString()))
                     Me.Image.Save(Me.Filename, format)
                 End If
 
-                If (Configuration.CurrentConfiguration.SaveAsZip) Then
+                If (Configuration.Current.SaveAsZip) Then
                     Me.SaveAsZip()
                 End If
             Catch ex As Exception
@@ -189,12 +189,12 @@ Namespace xScreen.Model
         Private Sub SaveAsZip()
             Dim zipFile As Ionic.Zip.ZipFile
             Dim zipPath As String = String.Empty
-            Dim dictionary As String = Configuration.CurrentConfiguration.DirectoryPath
+            Dim dictionary As String = Configuration.Current.DirectoryPath
             Dim fileNumber As Integer = 1
             Dim filename As String
 
             Try
-                If (Configuration.CurrentConfiguration.SplitZipPackages) Then
+                If (Configuration.Current.SplitZipPackages) Then
                     filename = "screens{0:000000}.zip"
 
                     Dim files = IO.Directory.GetFiles(dictionary, String.Format(filename, "*"))
@@ -205,12 +205,12 @@ Namespace xScreen.Model
 
                         fileNumber = CInt(file.Name.Substring("screens".Length, file.Name.LastIndexOf(".") - "screens".Length))
 
-                        If (file.Length / 1024 / 1024 > Configuration.CurrentConfiguration.ZipPackageSize) Then
+                        If (file.Length / 1024 / 1024 > Configuration.Current.ZipPackageSize) Then
                             fileNumber += 1
                         End If
                     End If
                     zipPath = IO.Path.Combine(dictionary, String.Format(filename, fileNumber))
-                ElseIf (Configuration.CurrentConfiguration.NewZipPerDay) Then
+                ElseIf (Configuration.Current.NewZipPerDay) Then
                     filename = "screens{0:yyyyMMdd}.zip"
                     zipPath = IO.Path.Combine(dictionary, String.Format(filename, Date.Now))
                 Else
@@ -220,7 +220,7 @@ Namespace xScreen.Model
 
                 zipFile = New Ionic.Zip.ZipFile(zipPath)
                 zipFile.Encryption = Ionic.Zip.EncryptionAlgorithm.WinZipAes256
-                zipFile.Password = Configuration.CurrentConfiguration.ZipPassword
+                zipFile.Password = Configuration.Current.ZipPassword
                 zipFile.AddFile(Me.Filename, String.Empty)
                 zipFile.Save()
 

@@ -10,7 +10,7 @@ Namespace xScreen.Model
     Public Class Configuration
 
 #Region " Members "
-        Private Shared _CurrentConfiguration As Configuration = Nothing
+        Private Shared _Current As Configuration = Nothing
 
         ''' <summary>
         ''' NIEMALS ÄNDERN, SONST GEHEN ALTE BILDER NICHT MEHR AUF!
@@ -51,13 +51,13 @@ Namespace xScreen.Model
 #End Region
 
 #Region " Properties "
-        Public Shared ReadOnly Property CurrentConfiguration As Model.Configuration
+        Public Shared ReadOnly Property Current As Model.Configuration
             Get
-                If (Configuration._CurrentConfiguration Is Nothing) Then
-                    Configuration._CurrentConfiguration = New Configuration()
+                If (Configuration._Current Is Nothing) Then
+                    Configuration._Current = New Configuration()
                 End If
 
-                Return Configuration._CurrentConfiguration
+                Return Configuration._Current
             End Get
         End Property
 

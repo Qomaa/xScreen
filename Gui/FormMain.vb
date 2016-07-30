@@ -35,7 +35,7 @@ Namespace xScreen.Gui
 
                 Me.ApplyConfiguration(True)
 
-                If (Model.Configuration.CurrentConfiguration.AutoStart) Then
+                If (Model.Configuration.Current.AutoStart) Then
                     Me.StartCycle()
                 Else
                     Me.StopCycle()
@@ -47,14 +47,15 @@ Namespace xScreen.Gui
 
         Private Sub ApplyConfiguration(OnInitialization As Boolean)
             Try
+                'My.Settings.Upgrade()
                 Me.ShowOrHideMainWindow()
                 If (Not OnInitialization) Then Me.SetAutoStart()
-                Me.TimerCaptureScreen.Interval = Model.Configuration.CurrentConfiguration.Cycle * 1000
+                Me.TimerCaptureScreen.Interval = Model.Configuration.Current.Cycle * 1000
                 Me.StatusProgressBar.Maximum = 1
                 Me.StatusProgressBar.Minimum = 0
 
                 Model.Util.WriteLogFileEntry("Configuration applied:", True)
-                Model.Util.WriteLogFileEntry(Model.Configuration.CurrentConfiguration.GetConfigurationString(), False)
+                Model.Util.WriteLogFileEntry(Model.Configuration.Current.GetConfigurationString(), False)
             Catch ex As Exception
                 Throw New Exception("Error while applying cofiguration.", ex)
             End Try
@@ -66,7 +67,7 @@ Namespace xScreen.Gui
                 Dim startupPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Startup)
                 Dim shortCut As String = IO.Path.Combine(startupPath, shortCutFile)
 
-                If (Model.Configuration.CurrentConfiguration.AutoStart) Then
+                If (Model.Configuration.Current.AutoStart) Then
                     If (Not IO.File.Exists(shortCut)) Then
                         Dim wsh As New IWshRuntimeLibrary.IWshShell_Class()
                         Dim link As IWshRuntimeLibrary.IWshShortcut_Class = CType(wsh.CreateShortcut(shortCut), IWshRuntimeLibrary.IWshShortcut_Class)
@@ -91,7 +92,7 @@ Namespace xScreen.Gui
         End Sub
 
         Private Sub ShowOrHideMainWindow()
-            If (Model.Configuration.CurrentConfiguration.HideMainWindow) Then
+            If (Model.Configuration.Current.HideMainWindow) Then
                 Me.Visible = False
                 Me.NotifyIcon.ShowBalloonTip(7000, "xScreen", "You can access xScreen via tray icon here.", ToolTipIcon.Info)
                 Me.ContextMenuItemShowHide.Text = "show window"
@@ -166,8 +167,8 @@ Namespace xScreen.Gui
             Dim similarImage As Boolean
 
             Try
-                If (String.IsNullOrEmpty(Model.Configuration.CurrentConfiguration.DirectoryPath) OrElse
-                    Not System.IO.Directory.Exists(Model.Configuration.CurrentConfiguration.DirectoryPath)) Then
+                If (String.IsNullOrEmpty(Model.Configuration.Current.DirectoryPath) OrElse
+                    Not System.IO.Directory.Exists(Model.Configuration.Current.DirectoryPath)) Then
                     MessageBox.Show("First, choose a valid directory path where your screenshots should be saved.")
                     Me.ShowConfig()
                     Return
@@ -230,13 +231,13 @@ Namespace xScreen.Gui
                 Dim nextTake As Date
                 Dim secondesLeft As Integer
 
-                nextTake = Me._LastScreenShot.ImageDate.AddSeconds(Model.Configuration.CurrentConfiguration.Cycle)
+                nextTake = Me._LastScreenShot.ImageDate.AddSeconds(Model.Configuration.Current.Cycle)
                 secondesLeft = CInt(New TimeSpan(nextTake.Subtract(Date.Now).Ticks).TotalSeconds)
 
                 If (secondesLeft < 0) Then Return
 
                 Me.StatusLabelProgress.Text = CStr(secondesLeft)
-                Me.StatusProgressBar.Maximum = Model.Configuration.CurrentConfiguration.Cycle
+                Me.StatusProgressBar.Maximum = Model.Configuration.Current.Cycle
                 Me.StatusProgressBar.Value = secondesLeft
             Catch ex As Exception
                 Throw New Exception("Error while updating GUI.", ex)
@@ -259,12 +260,12 @@ Namespace xScreen.Gui
 
 #Region " Event handlers "
         Private Sub ButtonShowHide_Click(sender As Object, e As EventArgs) Handles ButtonHideToTray.Click
-            Model.Configuration.CurrentConfiguration.HideMainWindow = Not Model.Configuration.CurrentConfiguration.HideMainWindow
+            Model.Configuration.Current.HideMainWindow = Not Model.Configuration.Current.HideMainWindow
             Me.ShowOrHideMainWindow()
         End Sub
 
         Private Sub ContextMenuItemShowHide_Click(sender As Object, e As EventArgs) Handles ContextMenuItemShowHide.Click
-            Model.Configuration.CurrentConfiguration.HideMainWindow = Not Model.Configuration.CurrentConfiguration.HideMainWindow
+            Model.Configuration.Current.HideMainWindow = Not Model.Configuration.Current.HideMainWindow
             Me.ShowOrHideMainWindow()
         End Sub
 
@@ -300,7 +301,7 @@ Namespace xScreen.Gui
         End Sub
 
         Private Sub NotifyIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
-            Model.Configuration.CurrentConfiguration.HideMainWindow = False
+            Model.Configuration.Current.HideMainWindow = False
             Me.ShowOrHideMainWindow()
 
             Me.WindowState = FormWindowState.Normal
@@ -340,7 +341,7 @@ Namespace xScreen.Gui
         End Sub
 
         Private Sub ContextMenuItemOpenDir_Click(sender As Object, e As EventArgs) Handles ContextMenuItemOpenDir.Click
-            Me.OpenFile(Model.Configuration.CurrentConfiguration.DirectoryPath)
+            Me.OpenFile(Model.Configuration.Current.DirectoryPath)
         End Sub
 
         Private Sub PictureBoxLastPicture_MouseClick(sender As Object, e As MouseEventArgs) Handles PictureBoxLastPicture.MouseClick
