@@ -47,7 +47,7 @@ Namespace xScreen.Gui
 
         Private Sub ApplyConfiguration(OnInitialization As Boolean)
             Try
-                'My.Settings.Upgrade()
+                My.Settings.Upgrade()
                 Me.ShowOrHideMainWindow()
                 If (Not OnInitialization) Then Me.SetAutoStart()
                 Me.TimerCaptureScreen.Interval = Model.Configuration.Current.Cycle * 1000
