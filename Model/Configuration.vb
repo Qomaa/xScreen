@@ -62,7 +62,7 @@ Namespace xScreen.Model
         End Property
 
 #Region " General "
-        <ComponentModel.DisplayName("Directory Path")>
+        <ComponentModel.DisplayName("Directory path")>
         <ComponentModel.Description("Sets the path of the directory in which the screenshots are saved.")>
         <ComponentModel.Category("General")>
         Public Property DirectoryPath As String

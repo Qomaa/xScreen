@@ -62,7 +62,7 @@ Namespace xScreen.Model
             End Try
         End Function
 
-        Public Function IsSimilarImage(ScreenShotToCompare As ScreenShot) As Boolean
+        Public Function IsSimilarImage(ScreenShotToCompare As ScreenShot, ByRef Similarity As Double) As Boolean
 
             If (Not Configuration.Current.SkipSimilarImages) Then Return False
             If (ScreenShotToCompare Is Nothing) Then Return False
@@ -110,9 +110,9 @@ Namespace xScreen.Model
                 Me.Image.UnlockBits(p1BitmapData)
                 ScreenShotToCompare.Image.UnlockBits(p2BitmapData)
 
-                Dim similarity As Double = equalPixels / (currentImagePixels / 100)
+                Similarity = equalPixels / (currentImagePixels / 100)
 
-                Return (similarity >= Configuration.Current.SkipImageSimilarity)
+                Return (Similarity >= Configuration.Current.SkipImageSimilarity)
             Catch ex As Exception
                 Throw New Exception("Error while comparing images.", ex)
             Finally

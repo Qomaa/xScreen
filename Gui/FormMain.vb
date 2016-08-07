@@ -165,6 +165,7 @@ Namespace xScreen.Gui
 
         Private Sub CaptureScreenShot()
             Dim similarImage As Boolean
+            Dim similarity As Double
 
             Try
                 If (String.IsNullOrEmpty(Model.Configuration.Current.DirectoryPath) OrElse
@@ -186,7 +187,7 @@ Namespace xScreen.Gui
                     Return
                 End If
 
-                If (Not screenshot.IsSimilarImage(Me._LastScreenShot)) Then
+                If (Not screenshot.IsSimilarImage(Me._LastScreenShot, similarity)) Then
                     screenshot.SaveAsNewFile()
                     similarImage = False
                 Else
@@ -203,13 +204,13 @@ Namespace xScreen.Gui
                 GC.Collect()
 
                 If (similarImage) Then
-                    Model.Util.WriteLogFileEntry($"Screenshot skipped (similar image).", True)
+                    Model.Util.WriteLogFileEntry($"Screenshot skipped (similar image, {similarity.ToString("F2")}%).", True)
                 Else
-                    Model.Util.WriteLogFileEntry($"Screenshot captured: {screenshot.Filename}", True)
+                    Model.Util.WriteLogFileEntry($"Screenshot captured: {screenshot.Filename}, similarity: {similarity.ToString("F2")}%", True)
                 End If
             Catch ex As Exception
                 Me.StopCycle()
-                Throw New Exception("Error while capturing screen shot.", ex)
+                Throw New Exception("Error while capturing screenshot.", ex)
             Finally
                 Me.Cursor = Cursors.Default
             End Try
