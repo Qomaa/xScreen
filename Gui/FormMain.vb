@@ -47,6 +47,7 @@ Namespace xScreen.Gui
 
         Private Sub ApplyConfiguration(OnInitialization As Boolean)
             Try
+                My.Settings.Save()
                 My.Settings.Upgrade()
                 Me.ShowOrHideMainWindow()
                 If (Not OnInitialization) Then Me.SetAutoStart()
