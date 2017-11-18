@@ -27,7 +27,7 @@
 * Option: suppress capturing, if certain window is activated (configurable)
 * Option: suppress capturing, if certain processes are running (configurable)
 * Event based screenshots (like: activated window changed)
-* **Do you have feature ideas?
+* **Do you have feature ideas?**
 ## Changelog
 * 1.5.4(a) - 2016-08-31
 	* bugfix: sometimes the user configuration got lost
