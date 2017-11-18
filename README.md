@@ -22,7 +22,7 @@ Main form
 
 ![](Home_configform.png)
 Configuration form
----
+----
 ## Requirements
 * .NET framework 4.5
 ----
@@ -35,7 +35,7 @@ Configuration form
 * Option: suppress capturing, if certain window is activated (configurable)
 * Option: suppress capturing, if certain processes are running (configurable)
 * Event based screenshots (like: activated window changed)
-* **Do you have feature ideas? Feel free to add a feature request on [ the issues page]( the issues page)(https___xscreen.codeplex.com_workitem_list_basic)!**
+* **Do you have feature ideas?
 ----
 ## Changelog
 * 1.5.4(a) - 2016-08-31
