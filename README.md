@@ -29,6 +29,8 @@
 * Event based screenshots (like: activated window changed)
 * **Do you have feature ideas?**
 ## Changelog
+* 1.6.0 - 2017-11-21
+	* Migrated to github
 * 1.5.4(a) - 2016-08-31
 	* bugfix: sometimes the user configuration got lost
 * 1.5.3 - 2016-08-07
